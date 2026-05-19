@@ -1,0 +1,29 @@
+{
+  "name": "datapro-addin",
+  "version": "1.0.0",
+  "description": "Free, open-source Excel Add-in with smart dashboards, AI tools, heatmaps, and data cleaning. MIT License.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "lint": "eslint src/**/*.js"
+  },
+  "keywords": ["excel", "office-addin", "dashboard", "heatmap", "ai", "free", "open-source"],
+  "author": "DataPro Contributors",
+  "license": "MIT",
+  "dependencies": {
+    "@microsoft/office-js": "^1.1.73",
+    "chart.js": "^4.4.1",
+    "d3": "^7.8.5",
+    "papaparse": "^5.4.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.3",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3"
+  }
+}

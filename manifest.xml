@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+  xsi:type="TaskPaneApp">
+
+  <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>DataPro Open Source</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="DataPro Add-in"/>
+  <Description DefaultValue="Free, open-source Excel add-in with smart dashboards, AI tools, heatmaps, and data cleaning. MIT License."/>
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
+  <SupportUrl DefaultValue="https://github.com/your-repo/datapro-addin"/>
+
+  <AppDomains>
+    <AppDomain>https://localhost:3000</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStarted.Title"/>
+            <Description resid="GetStarted.Description"/>
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
+          </GetStarted>
+
+          <FunctionFile resid="Commands.Url"/>
+
+          <!-- Custom Ribbon Tab -->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <CustomTab id="DataProTab">
+              <Label resid="TabLabel"/>
+
+              <!-- Dashboard Group -->
+              <Group id="DashboardGroup">
+                <Label resid="DashboardGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16"/>
+                  <bt:Image size="32" resid="Icon.32x32"/>
+                  <bt:Image size="80" resid="Icon.80x80"/>
+                </Icon>
+                <Control xsi:type="Button" id="OpenDashboard">
+                  <Label resid="OpenDashboard.Label"/>
+                  <Supertip>
+                    <Title resid="OpenDashboard.Label"/>
+                    <Description resid="OpenDashboard.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>DataProPane</TaskpaneId>
+                    <SourceLocation resid="Taskpane.Url"/>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="OpenHeatmap">
+                  <Label resid="OpenHeatmap.Label"/>
+                  <Supertip>
+                    <Title resid="OpenHeatmap.Label"/>
+                    <Description resid="OpenHeatmap.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>DataProPane</TaskpaneId>
+                    <SourceLocation resid="Heatmap.Url"/>
+                  </Action>
+                </Control>
+              </Group>
+
+              <!-- AI Tools Group -->
+              <Group id="AIGroup">
+                <Label resid="AIGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16"/>
+                  <bt:Image size="32" resid="Icon.32x32"/>
+                  <bt:Image size="80" resid="Icon.80x80"/>
+                </Icon>
+                <Control xsi:type="Button" id="OpenAI">
+                  <Label resid="OpenAI.Label"/>
+                  <Supertip>
+                    <Title resid="OpenAI.Label"/>
+                    <Description resid="OpenAI.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>DataProPane</TaskpaneId>
+                    <SourceLocation resid="AI.Url"/>
+                  </Action>
+                </Control>
+              </Group>
+
+              <!-- Data Cleaning Group -->
+              <Group id="CleanGroup">
+                <Label resid="CleanGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16"/>
+                  <bt:Image size="32" resid="Icon.32x32"/>
+                  <bt:Image size="80" resid="Icon.80x80"/>
+                </Icon>
+                <Control xsi:type="Button" id="OpenCleaner">
+                  <Label resid="OpenCleaner.Label"/>
+                  <Supertip>
+                    <Title resid="OpenCleaner.Label"/>
+                    <Description resid="OpenCleaner.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>DataProPane</TaskpaneId>
+                    <SourceLocation resid="Cleaner.Url"/>
+                  </Action>
+                </Control>
+              </Group>
+
+            </CustomTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+        <bt:Url id="Heatmap.Url" DefaultValue="https://localhost:3000/taskpane.html#heatmap"/>
+        <bt:Url id="AI.Url" DefaultValue="https://localhost:3000/taskpane.html#ai"/>
+        <bt:Url id="Cleaner.Url" DefaultValue="https://localhost:3000/taskpane.html#cleaner"/>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://github.com/your-repo/datapro-addin"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GetStarted.Title" DefaultValue="DataPro Add-in is ready!"/>
+        <bt:String id="TabLabel" DefaultValue="DataPro"/>
+        <bt:String id="DashboardGroup.Label" DefaultValue="Dashboard"/>
+        <bt:String id="AIGroup.Label" DefaultValue="AI Tools"/>
+        <bt:String id="CleanGroup.Label" DefaultValue="Data"/>
+        <bt:String id="OpenDashboard.Label" DefaultValue="Smart Dashboard"/>
+        <bt:String id="OpenHeatmap.Label" DefaultValue="Heatmap"/>
+        <bt:String id="OpenAI.Label" DefaultValue="AI Assistant"/>
+        <bt:String id="OpenCleaner.Label" DefaultValue="Data Cleaner"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="GetStarted.Description" DefaultValue="DataPro adds smart dashboards, heatmaps, AI tools, and data cleaning to Excel. 100% free, MIT licensed."/>
+        <bt:String id="OpenDashboard.Tooltip" DefaultValue="Open the interactive smart dashboard with KPI cards and charts."/>
+        <bt:String id="OpenHeatmap.Tooltip" DefaultValue="Visualize your selected data as an interactive heatmap."/>
+        <bt:String id="OpenAI.Tooltip" DefaultValue="Ask AI to analyze data, build formulas, or generate insights."/>
+        <bt:String id="OpenCleaner.Tooltip" DefaultValue="Detect and fix duplicates, blanks, type errors, and anomalies."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
